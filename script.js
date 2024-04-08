@@ -160,6 +160,7 @@ updateUi = () => {
         const button = document.createElement("button");
         button.textContent = `Sum ${this.numString[i]} + ${this.numString[i + 1]}`;
         button.onclick = () => this.sumPair(i);
+        button.disabled = !this.isUser;
         actionsContainer.appendChild(button);
     }
 
@@ -167,6 +168,7 @@ updateUi = () => {
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete Last Number";
         deleteButton.onclick = () => this.deleteNumber();
+        deleteButton.disabled = !this.isUser;
         actionsContainer.appendChild(deleteButton);
     }
 }
@@ -290,8 +292,10 @@ switchTurn = (nextPlayer) => {
 
     if (this.player === "User") {
         this.updateStatusMessage("User move.");
+        this.isUser = true;
     } else {
         this.updateStatusMessage("Computer move. Please wait...");
+        this.isUser = false;
         setTimeout(() => this.computerMove(), 2000);
     }
 
