@@ -256,12 +256,12 @@ computerMove = () => {
     }
 
     if (bestAction.hasOwnProperty('index')) {
-        this.numString = applyMove(this.numString, bestAction.index);
+        this.numString = applyMove(this.numString, bestAction.index)
+        this.computerScore++;
     } else if (bestAction.deleteLast) {
-        this.numString = applyMove(this.numString, 0, true);
+        this.numString = applyMove(this.numString, 0, true)
+        this.computerScore--;
     }
-
-    this.computerScore++;
 
     this.updateUi();
 
