@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-stage">
+        <h1>AI Game</h1>
+        <div id="game-setup">
+            <label for="length-input">Enter the length of the numerical string (between 15 and 25):</label>
+            <input type="number" id="length-input" min="15" max="25">
+            <button id="length-submit-btn" onclick="lengthSubmit()">OK</button>
+        </div>
+        <div id="game-start" style="display: none;">
+            <div id="game-start-form">
+                <div class="form-member">
+                    <label for="player">Who starts the game?</label>
+                    <select id="player">
+                        <option value="User">User</option>
+                        <option value="Computer">Computer</option>
+                    </select>
+                </div>
+                <div class="form-member">
+                    <label for="algorithm">Choose computer algorithm:</label>
+                    <select id="algorithm">
+                        <option value="Minimax">Minimax</option>
+                        <option value="Alpha-Beta">Alpha-Beta</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="start()">Start Game</button>
+        </div>
+
+        <div id="game-menu" style="display: none;">
+            <div id="game-info">
+                <p>Numerical String:</p>
+                <div id="numerical-string"></div>
+                <p id="user-score-container">User Score: <span id="user-score">0</span></p>
+                <p id="computer-score-container">Computer Score: <span id="computer-score">0</span></p>
+                <p id="current-player-container">Current Player: <span id="current-player">user</span></p>
+                <p id="current-algorithm-container">Algorithm: <span id="current-algorithm">Minimax</span></p>
+            </div>
+            <div id="game-options">
+                <button id="start-new-game-btn" style="display: none;">Start New Game</button>
+            </div>
+            <div id="numerical-string-actions"></div>
+            <p id="status-message">Welcome to the game!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
